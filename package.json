@@ -1,0 +1,50 @@
+{
+  "name": "databox-store-blob-mongo",
+  "version": "1.0.0",
+  "description": "Datbox datastore for blob data backed by MongoDB",
+  "config": {
+    "registry": "localhost:5000"
+  },
+  "scripts": {
+    "prestart": "mongod --dbpath database --fork --logpath /dev/null --wiredTigerEngineConfigString=\"cache_size=50M\"",
+    "pretest": "mongod --dbpath database --fork --logpath /dev/null --wiredTigerEngineConfigString=\"cache_size=50M\"",
+    "test": "NO_SECURITY=1 NO_LOGGING=1 /node_modules/mocha/bin/mocha",
+    "testincont": "docker run -t databox/databox-store-blob-mongo npm test",
+    "start": "node ./src/main.js",
+    "build": "docker build -t databox/databox-store-blob-mongo .",
+    "deploy": "docker tag databox/databox-store-blob-mongo $npm_package_config_registry/databox-store-blob-mongo && docker push $npm_package_config_registry/databox-store-blob-mongo",
+    "build-arm": "docker build -f Dockerfile-arm -t databox/databox-store-blob-mongo-arm .",
+    "deploy-arm": "docker tag databox/databox-store-blob-mongo-arm $npm_package_config_registry/databox-store-blob-mongo-arm && docker push $npm_package_config_registry/databox-store-blob-mongo-arm",
+    "clean": "node ./node_modules/modclean/bin/modclean.js -p ./node_modules/ -r",
+    "getshell": "docker exec -i -t databox-store-blob-mongo /bin/bash",
+    "kill": "docker kill databox-store-blob-mongo",
+    "attach": "docker attach databox-store-blob-mongo",
+    "shell": "docker run -i -t databox/databox-store-blob-mongo /bin/bash",
+    "local": "docker run -i -t databox/databox-store-blob-mongo"
+  },
+  "author": "Anthony Brown <Anthony.Brown@nottingham.ac.uk> ()",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Toshbrown/databox-store-blob-mongo/issues"
+  },
+  "homepage": "https://github.com/Toshbrown/databox-store-blob-mongo#readme",
+  "dependencies": {
+    "basic-auth": "^1.1.0",
+    "body-parser": "^1.15.2",
+    "bunyan": "^1.8.5",
+    "bunyan-middleware": "^0.5.1",
+    "express": "^4.14.0",
+    "macaroons.js": "^0.3.6",
+    "modclean": "",
+    "mongodb": "^2.2.0",
+    "node-uuid": "^1.4.7",
+    "path-to-regexp": "^1.7.0",
+    "request": "^2.75.0",
+    "ws": "^1.1.1"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^3.1.2",
+    "supertest": "^2.0.0"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "manifest-version": 1,
+
+  "name": "databox-store-blob-mongo",
+  "version": "0.1.0",
+
+  "description": "A simple Databox store for json blob data backed by MongoDB",
+  "author": "Anthony Brown <Anthony.Brown@nottingham.ac.uk> ()",
+  "license": "MIT",
+
+	"databox-type":"store",
+
+  "tags": [
+    "store",
+    "blob",
+    "db",
+    "native",
+    "json",
+    "timseries"
+  ],
+
+  "homepage": "https://github.com/me-box/databox-store-blob-mongo",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/me-box/databox-store-blob-mongo.git"
+  },
+
+  "volumes": [
+              "/database"
+  ]
+}
