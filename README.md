@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/me-box/databox-store-blob.svg?branch=master)](https://travis-ci.org/me-box/databox-store-blob)
+[![Build Status](https://travis-ci.org/me-box/databox-store-blob-mongo.svg?branch=master)](https://travis-ci.org/me-box/databox-store-blob-mongo)
 
 # databox-store-blob-mongo
 
