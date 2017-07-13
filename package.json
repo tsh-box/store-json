@@ -1,5 +1,5 @@
 {
-  "name": "databox-store-blob-mongo",
+  "name": "store-json",
   "version": "1.0.0",
   "description": "Datbox datastore for blob data backed by MongoDB",
   "config": {
@@ -9,25 +9,25 @@
     "prestart": "mongod --dbpath database --fork --logpath /dev/null --wiredTigerEngineConfigString=\"cache_size=50M\"",
     "pretest": "mongod --dbpath database --fork --logpath /dev/null --wiredTigerEngineConfigString=\"cache_size=50M\"",
     "test": "NO_SECURITY=1 NO_LOGGING=1 /node_modules/mocha/bin/mocha",
-    "testincont": "docker run -t databox/databox-store-blob-mongo npm test",
+    "testincont": "docker run -t databox/store-json npm test",
     "start": "node ./src/main.js",
-    "build": "docker build -t databox/databox-store-blob-mongo .",
-    "deploy": "docker tag databox/databox-store-blob-mongo $npm_package_config_registry/databox-store-blob-mongo && docker push $npm_package_config_registry/databox-store-blob-mongo",
-    "build-arm": "docker build -f Dockerfile-arm -t databox/databox-store-blob-mongo-arm .",
-    "deploy-arm": "docker tag databox/databox-store-blob-mongo-arm $npm_package_config_registry/databox-store-blob-mongo-arm && docker push $npm_package_config_registry/databox-store-blob-mongo-arm",
+    "build": "docker build -t databox/store-json .",
+    "deploy": "docker tag databox/store-json $npm_package_config_registry/store-json && docker push $npm_package_config_registry/store-json",
+    "build-arm": "docker build -f Dockerfile-arm -t databox/store-json-arm .",
+    "deploy-arm": "docker tag databox/store-json-arm $npm_package_config_registry/store-json-arm && docker push $npm_package_config_registry/store-json-arm",
     "clean": "node ./node_modules/modclean/bin/modclean.js -p ./node_modules/ -r",
-    "getshell": "docker exec -i -t databox-store-blob-mongo /bin/bash",
-    "kill": "docker kill databox-store-blob-mongo",
-    "attach": "docker attach databox-store-blob-mongo",
-    "shell": "docker run -i -t databox/databox-store-blob-mongo /bin/bash",
-    "local": "docker run -i -t databox/databox-store-blob-mongo"
+    "getshell": "docker exec -i -t store-json /bin/bash",
+    "kill": "docker kill store-json",
+    "attach": "docker attach store-json",
+    "shell": "docker run -i -t databox/store-json /bin/bash",
+    "local": "docker run -i -t databox/store-json"
   },
   "author": "Anthony Brown <Anthony.Brown@nottingham.ac.uk> ()",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Toshbrown/databox-store-blob-mongo/issues"
+    "url": "https://github.com/Toshbrown/store-json/issues"
   },
-  "homepage": "https://github.com/Toshbrown/databox-store-blob-mongo#readme",
+  "homepage": "https://github.com/Toshbrown/store-json#readme",
   "dependencies": {
     "basic-auth": "^1.1.0",
     "body-parser": "^1.15.2",

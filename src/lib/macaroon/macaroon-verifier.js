@@ -4,7 +4,7 @@ var basicAuth = require('basic-auth');
 var macaroons = require('macaroons.js');
 var pathToRegexp = require('path-to-regexp');
 
-const DATABOX_ARBITER_ENDPOINT = process.env.DATABOX_ARBITER_ENDPOINT || "https://databox-arbiter:8080";
+const DATABOX_ARBITER_ENDPOINT = process.env.DATABOX_ARBITER_ENDPOINT || "https://arbiter:8080";
 
 
 /**
