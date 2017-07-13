@@ -1,12 +1,14 @@
-[![Build Status](https://travis-ci.org/me-box/databox-store-blob-mongo.svg?branch=master)](https://travis-ci.org/me-box/databox-store-blob-mongo)
+[![Build Status](https://travis-ci.org/me-box/store-json.svg?branch=master)](https://travis-ci.org/me-box/store-json)
 
-# databox-store-blob-mongo
+# store-json
 
 N.B. This is a temporary solution to enable handling of lager data sets. This will be replaced by https://github.com/sevenEng/databox-storage once it is ready. 
 
+N.B This store will not work on ARM due to the lack of an ARM mongo package for .
+
 Databox Store for JSON data blobs handles time series and key value data. Based on mongoDB.
 
-The datastore exposes an HTTP-based API on port 8080 and a WebSocket based API
+The data store exposes an HTTP-based API on port 8080 and a WebSocket based API
 for live data. All requests must have arbiter tokens passed as per section 7.1
 of the
 [Hypercat 3.0 specs](https://shop.bsigroup.com/upload/276605/PAS212-corr.pdf).

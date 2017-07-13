@@ -35,9 +35,9 @@ const SubscriptionManager = require('./lib/subscription/subscriptionManager.js')
 const timeseries = require('./timeseries.js');
 const keyvalue   = require('./keyvalue.js');
 
-const DATABOX_LOCAL_NAME = process.env.DATABOX_LOCAL_NAME || "databox-store-blob";
+const DATABOX_LOCAL_NAME = process.env.DATABOX_LOCAL_NAME || "store-json";
 const DATABOX_LOCAL_PORT = process.env.DATABOX_LOCAL_PORT || 8080;
-const DATABOX_ARBITER_ENDPOINT = process.env.DATABOX_ARBITER_ENDPOINT || "https://databox-arbiter:8080";
+const DATABOX_ARBITER_ENDPOINT = process.env.DATABOX_ARBITER_ENDPOINT || "https://arbiter:8080";
 
 const app = express();
 

@@ -27,10 +27,10 @@ describe('Read and write Hypercat catalogue items', function() {
 				"val": false
 			}, {
 				"rel": "urn:X-databox:rels:hasStoreType",
-				"val": "databox-store-blob"
+				"val": "store-json"
 			}
 		],
-		"href": "https://databox-store-blob:8080"
+		"href": "https://store-json:8080"
 	};
 
 	var testItemB = {
@@ -53,10 +53,10 @@ describe('Read and write Hypercat catalogue items', function() {
 				"val": "someRandomString"
 			}, {
 				"rel": "urn:X-databox:rels:hasStoreType",
-				"val": "databox-store-blob"
+				"val": "store-json"
 			}
 		],
-		"href": "https://databox-store-blob:8080"
+		"href": "https://store-json:8080"
 	};
 
 	it('GET /cat', (done) => {

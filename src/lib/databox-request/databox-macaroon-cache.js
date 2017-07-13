@@ -4,7 +4,7 @@ const fs = require('fs');
 const httpsAgent = require('./databox-https-agent.js');
 
 
-const DATABOX_ARBITER_ENDPOINT = process.env.DATABOX_ARBITER_ENDPOINT || "https://databox-arbiter:8080";
+const DATABOX_ARBITER_ENDPOINT = process.env.DATABOX_ARBITER_ENDPOINT || "https://arbiter:8080";
 
 
 let ARBITER_TOKEN = '';

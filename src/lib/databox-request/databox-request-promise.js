@@ -8,7 +8,7 @@ const macaroonCache = require('./databox-macaroon-cache.js');
 //
 //Databox ENV vars
 //
-const DATABOX_ARBITER_ENDPOINT = process.env.DATABOX_ARBITER_ENDPOINT || "https://databox-arbiter:8080";
+const DATABOX_ARBITER_ENDPOINT = process.env.DATABOX_ARBITER_ENDPOINT || "https://arbiter:8080";
 
 let ARBITER_TOKEN = '';
 try {
@@ -48,7 +48,7 @@ module.exports = function (options,callback) {
         //TODO: Lets not hard code these!! 
         var isExternalRequest = host.indexOf('.') !== -1;
         
-        var isExternalDevRequest = host.indexOf("databox-local-registry") !== -1 || host.indexOf("databox-app-server") !== -1;
+        var isExternalDevRequest = host.indexOf("app-server") !== -1;
         
         if(protocol == "https:") {
             //use the databox https agent
