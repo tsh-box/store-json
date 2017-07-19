@@ -11,10 +11,9 @@ try {
 	//const ARBITER_KEY = process.env.ARBITER_TOKEN;
 	ARBITER_KEY = fs.readFileSync("/run/secrets/ARBITER_TOKEN",{encoding:'base64'});
 	//HTTPS certs created by the container mangers for this components HTTPS server.
-	HTTPS_SECRETS = JSON.parse( fs.readFileSync("/run/secrets/DATABOX_PEM") );
 	credentials = {
-		key:  HTTPS_SECRETS.clientprivate || '',
-		cert: HTTPS_SECRETS.clientcert || '',
+		key:  fs.readFileSync("/run/secrets/DATABOX.pem") || '',
+		cert: fs.readFileSync("/run/secrets/DATABOX.pem") || '',
 	};
 } catch (e) {
 	//secrets missing ;-(
