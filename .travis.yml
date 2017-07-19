@@ -5,5 +5,7 @@ node_js:
 services:
   - docker
 script:
+- mkdir -p /run/secrets/ 
+- echo "ThisIsNotAKey" > /run/secrets/ARBITER_TOKEN 
 - npm run build
 - npm run testincont
