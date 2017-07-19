@@ -3,6 +3,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const WebSocketServer = require('ws').Server;
 const fs = require('fs');
+const databox = require('node-databox');
+
 
 let ARBITER_KEY = '';
 let HTTPS_SECRETS = {};
@@ -11,10 +13,8 @@ try {
 	//const ARBITER_KEY = process.env.ARBITER_TOKEN;
 	ARBITER_KEY = fs.readFileSync("/run/secrets/ARBITER_TOKEN",{encoding:'base64'});
 	//HTTPS certs created by the container mangers for this components HTTPS server.
-	credentials = {
-		key:  fs.readFileSync("/run/secrets/DATABOX.pem") || '',
-		cert: fs.readFileSync("/run/secrets/DATABOX.pem") || '',
-	};
+	credentials = databox.getHttpsCredentials();
+
 } catch (e) {
 	//secrets missing ;-(
 	ARBITER_KEY = '';
