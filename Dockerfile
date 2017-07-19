@@ -16,4 +16,9 @@ LABEL databox.type="store"
 
 EXPOSE 8080
 
+#Next 3 lines are neded to pass tests only 
+RUN mkdir -p /run/secrets
+RUN touch /run/secrets/ARBITER_TOKEN
+RUN touch /run/secrets/DATABOX_ROOT_CA
+
 CMD ["npm","start"]

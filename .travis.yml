@@ -5,7 +5,5 @@ node_js:
 services:
   - docker
 script:
-- sudo mkdir -p /run/secrets/ 
-- sudo touch /run/secrets/ARBITER_TOKEN 
 - npm run build
 - npm run testincont
