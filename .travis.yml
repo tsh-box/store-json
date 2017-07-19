@@ -6,6 +6,6 @@ services:
   - docker
 script:
 - sudo mkdir -p /run/secrets/ 
-- echo "ThisIsNotAKey" > /run/secrets/ARBITER_TOKEN 
+- sudo touch /run/secrets/ARBITER_TOKEN 
 - npm run build
 - npm run testincont
