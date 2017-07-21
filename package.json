@@ -38,6 +38,7 @@
     "modclean": "",
     "mongodb": "^2.2.0",
     "node-uuid": "^1.4.7",
+    "node-databox": "0.5.2",
     "path-to-regexp": "^1.7.0",
     "request": "^2.75.0",
     "ws": "^1.1.1"
