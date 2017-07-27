@@ -23,7 +23,7 @@ module.exports.getSecretFromArbiter = function(arbiterKey) {
 				reject(error);
 				return;
 			}
-			resolve(new Buffer(body, 'base64'));
+			resolve(body);
 		}).catch((err)=>{
 			console.log('[Error] getting /store/secret');
 		});
