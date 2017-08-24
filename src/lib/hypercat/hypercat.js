@@ -68,6 +68,7 @@ module.exports = function (expressApp, databox_local_name, databox_local_port) {
 
 		if (!isValidItem(item)) {
 			// PAS Table 8
+			console.log("Invalid cat Item ", item)
 			res.status(400).send();
 			return;
 		}

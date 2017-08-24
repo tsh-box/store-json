@@ -55,16 +55,6 @@ macaroonVerifier.getSecretFromArbiter(ARBITER_KEY)
 			wsVerifier = macaroonVerifier.wsVerifier(secret, DATABOX_LOCAL_NAME);
 		}
 
-		/*
-		* DATABOX API Logging
-		* Logs all requests and responses to/from the API in bunyan format in nedb
-		*/
-		
-		if (!NO_LOGGING) {
-			var databoxLogger = require('./lib/log/databox-log-middelware.js')();
-			app.use(databoxLogger);
-		}
-
 		var server = null;
 		if(credentials.cert === '' || credentials.key === '') {
 			var http = require('http');
