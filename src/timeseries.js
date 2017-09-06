@@ -126,15 +126,17 @@ module.exports.api = function (subscriptionManager) {
 		
 		//trust the drivers timestamp
 		let timestamp = null;
-		if(req.body.data.timestamp && Number.isInteger(req.body.data.timestamp)) {
+		if(req.body && req.body.data && req.body.data.timestamp && Number.isInteger(req.body.data.timestamp)) {
 			timestamp = req.body.data.timestamp;
+		} else if (req.body && req.body.timestamp && Number.isInteger(req.body.timestamp)) {
+			timestamp = req.body.timestamp;
 		} else {
 			timestamp = Date.now();
 		}
 		
 		var data = {
 			datasource_id: req.params.datasourceid,
-			'data': req.body.data,
+			'data': req.body.data || req.body,
 			'timestamp': timestamp
 		};
 
