@@ -19,41 +19,50 @@ of the
 ### Time series data
 
 Each value in the time series is a JSON-encoded object with fields:
+
 - `data` - the raw value
 - `timestamp` - the time associated with the value, integer milliseconds since UNIX epoch, used for time-based queries.
 - `datasource_id` - the datasource ID (this is required internally, but also visible to clients)
+
 All methods return data in this form (or an array of such values), and the POST method optionally uses this form.
 
     URL: /<datasourceid>/ts/latest
     Method: GET
     Parameters: <datasourceid> the datasourceid to get data for.
-    Notes: will return the latest value object based on the datasourceid in a (possibly empty) array
+    Notes: will return the latest value object based on the datasourceid 
+    in a (possibly empty) array
 
     URL: /<datasourceid>/ts/since
     Method: GET
     URL Parameters: <datasourceid> the datasourceid to get data for.
     Body Parameters: <startTimestamp> the timestamp in ms to return records after (inclusive).
-    Notes: will return an array of all value objects since the provided timestamp (inclusive) for the provided datasourceid. Body must be JSON-encoded.
+    Notes: will return an array of all value objects since the provided timestamp 
+    (inclusive) for the provided datasourceid. 
+    Body must be JSON-encoded.
 
     URL: /<datasourceid>/ts/range
     Method: GET
     URL Parameters: <datasourceid> the datasourceid to get data for
     Body Parameters: <startTimestamp> and <endTimestamp> in ms for the range (inclusive of start and end).
-    Notes: will return an array of all value objects between the provided start and end timestamps (inclusive) for the provided datasourceid. Body must be JSON-encoded.
+    Notes: will return an array of all value objects between the provided start 
+    and end timestamps (inclusive) for the provided datasourceid. 
+    Body must be JSON-encoded.
 
     URL: /<datasourceid>/ts/query
     method: GET
     Body Parameters: <query> a string containing a mongoDB json query 
     Body Parameters: <limit> an integer max number of documents to return 
     Body Parameters: <sort> a string containing a mongoDB json sort object
-    Notes: returns an array of value object. Body must be JSON-encoded.
+    Notes: returns an array of value object. 
+    Body must be JSON-encoded.
     
 ### Key value pairs
 
     URL: /<key>/kv/
     Method: GET
     Parameters: replace <key> with document key
-    Notes: will return the json-encoded data stored with that key (no wrapper object). Returns an empty array 404 {status:404,error:"Document not found."} if no data is stored
+    Notes: will return the json-encoded data stored with that key (no wrapper object). 
+    Returns an empty array 404 {status:404,error:"Document not found."} if no data is stored
 
 ### Websockets
 
@@ -64,14 +73,16 @@ Connect to a websocket client to `/ws`. Then subscribe for data using:
     URL: /sub/<datasourceid>/ts
     Method: GET
     Parameters: replace <datasourceid> with datasourceid
-    Notes: Will broadcast over the websocket the data stored by datasourceid when data is added. Each value is a JSON object as described above.
+    Notes: Will broadcast over the websocket the data stored by datasourceid 
+    when data is added. Each value is a JSON object as described above.
 
     For key value:
 
     URL: /sub/<key>/kv
     Method: GET
     Parameters: replace <key> with document key
-    Notes:  Will broadcast over the websocket the data stored with that key when it is add or updated. Each value is a JSON object with `datasource_id` and `data`
+    Notes:  Will broadcast over the websocket the data stored with that key 
+    when it is add or updated. Each value is a JSON object with `datasource_id` and `data`
 
 ## Write API
 
@@ -112,8 +123,10 @@ Connect to a websocket client to `/ws`. Then subscribe for data using:
 ### Time series data
     URL: /<datasourceid>/ts/
     Method: POST
-    Parameters: Raw JSON body containing elements as follows {data: <json blob to store>} (else the whole body is taken as the data value)
-    Notes: If there is a (integer) timestamp field in data or body it is used otherwise a timestamp is added on insertion 
+    Parameters: Raw JSON body containing elements as follows 
+    {data: <json blob to store>} (else the whole body is taken as the data value)
+    Notes: If there is a (integer) timestamp field in data or body 
+    it is used otherwise a timestamp is added on insertion 
 
 ### Key value pairs
 
