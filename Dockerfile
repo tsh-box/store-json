@@ -3,7 +3,7 @@ FROM alpine:edge
 RUN \
 echo http://dl-4.alpinelinux.org/alpine/edge/testing >> /etc/apk/repositories && \
 apk add --no-cache mongodb && \
-apk add --no-cache nodejs && \
+apk add --no-cache nodejs nodejs-npm && \
 rm /usr/bin/mongoperf
 
 VOLUME /database
