@@ -17,7 +17,7 @@ module.exports = class extends EventEmitter {
 			// - They definitely have access to WS subscription
 			var macaroon = ws.upgradeReq.macaroon;
 
-			// TODO: See me-box/databox-store-blob issue #19
+			// TODO: See tsh2/databox-store-blob issue #19
 			this.clients[macaroon.identifier] = ws;
 			ws.on('close', (code, reason) => {
 				delete this.clients[macaroon.identifier];
@@ -29,11 +29,11 @@ module.exports = class extends EventEmitter {
 	sub() {
 		return (req, res) => {
 			// NOTE: Don't need to check anyhting here since it's all already covered by the path caveat
-			// TODO: See me-box/databox-store-blob issue #19
+			// TODO: See tsh2/databox-store-blob issue #19
 			const id = req.macaroon.identifier;
 
 			if (!(id in this.clients)) {
-				// TODO: See me-box/databox-store-blob issue #19
+				// TODO: See tsh2/databox-store-blob issue #19
 				res.status(409).send('No open WebSocket connection to client; WebSocket connection must exist before subscription requests');
 				return;
 			}
