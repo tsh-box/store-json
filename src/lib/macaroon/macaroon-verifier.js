@@ -183,7 +183,7 @@ module.exports.verifier = function (secret, storeName) {
  * @return {Function} WebSocket server client verifier
  */
 module.exports.wsVerifier = function (secret, storeName) {
-	// TODO: See me-box/databox-store-blob issue #19
+	// TODO: See tsh2/databox-store-blob issue #19
 	return function (info, callback) {
 		if (!info.secure) {
 			callback(false, 426, 'Connection must be over secure WebSockets');
