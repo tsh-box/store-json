@@ -19,10 +19,10 @@
     "timseries"
   ],
 
-  "homepage": "https://github.com/tsh2/store-json",
+  "homepage": "https://github.com/tsh-box/store-json",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/tsh2/store-json.git"
+    "url": "git+https://github.com/tsh-box/store-json.git"
   },
 
   "volumes": [

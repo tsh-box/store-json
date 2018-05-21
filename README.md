@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/tsh2/store-json.svg?branch=master)](https://travis-ci.org/tsh2/store-json)
+[![Build Status](https://travis-ci.org/tsh-box/store-json.svg?branch=master)](https://travis-ci.org/tsh-box/store-json)
 
 # store-json
 
